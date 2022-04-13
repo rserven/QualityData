@@ -3,7 +3,7 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using QualityData.Api.Contexts;
 using QualityData.Api.Interfaces;
-using QualityData.Api.Models;
+using QualityData.Library.Models;
 
 namespace QualityData.Api.Services
 {
@@ -41,7 +41,7 @@ namespace QualityData.Api.Services
             return data;
         }
 
-        public async Task Guardar(Dto.Cliente cliente)
+        public async Task Guardar(Library.Dto.Cliente cliente)
         {
             if (cliente.ClienteId == 0)
             {
@@ -50,7 +50,7 @@ namespace QualityData.Api.Services
                     Apellido = cliente.Apellido,
                     Documento = cliente.Documento,
                     Nombre = cliente.Nombre,
-                    ClienteUbicacions = new List<ClienteUbicacion>() { new ClienteUbicacion { UbicacionId = 1 } } //Por efecto de evaluacion se coloca un valor por defecto
+                    ClienteUbicacions = new List<ClienteUbicacion>() { new() { UbicacionId = 1 } } //Por efecto de evaluacion se coloca un valor por defecto
                 };
 
                 await _context.Clientes.AddAsync(nuevoCliente);

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using QualityData.Api.Interfaces;
-using QualityData.Api.Models;
 using QualityData.Api.Services;
+using QualityData.Library.Dto;
 
 namespace QualityData.Api.Controllers
 {
@@ -21,7 +21,7 @@ namespace QualityData.Api.Controllers
 
         [HttpGet]
         [Route("ObtenerPorVista")]
-        public async Task<IActionResult> ObtenerPorVista(int clienteId)
+        public async Task<IActionResult> ObtenerPorVista()
         {
             try
             {
@@ -37,7 +37,7 @@ namespace QualityData.Api.Controllers
 
         [HttpGet]
         [Route("ObtenerPorSp")]
-        public async Task<IActionResult> ObtenerPorSp(int clienteId)
+        public async Task<IActionResult> ObtenerPorSp()
         {
             try
             {
@@ -51,9 +51,25 @@ namespace QualityData.Api.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("ObtenerCliente/{clienteId}")]
+        public async Task<IActionResult> ObtenerCliente([FromRoute] int clienteId)
+        {
+            try
+            {
+                var data = await _clientesService.ObtenerCliente(clienteId);
+                return Ok(data);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, e.Message);
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpPost]
         [Route("Guardar")]
-        public async Task<IActionResult> Guardar(Dto.Cliente cliente)
+        public async Task<IActionResult> Guardar(Cliente cliente)
         {
             try
             {

@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
-using QualityData.Api.Models;
 using QualityData.Api.Services;
+using QualityData.Library.Models;
 
 namespace QualityData.Api.Interfaces;
 
@@ -8,6 +8,6 @@ public interface IClientesService
 {
     Task<List<ObtenerCliente>> ObtenerClientes(ClientesService.TipoConsulta tipoConsulta);
     Task<Cliente?> ObtenerCliente(int clienteId);
-    Task Guardar(Dto.Cliente cliente);
+    Task Guardar(Library.Dto.Cliente cliente);
     Task Eliminar(int clienteId);
 }

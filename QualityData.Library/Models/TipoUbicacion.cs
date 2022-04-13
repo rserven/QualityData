@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace QualityData.Api.Models
+namespace QualityData.Library.Models
 {
     [Table("TipoUbicacion")]
     public partial class TipoUbicacion

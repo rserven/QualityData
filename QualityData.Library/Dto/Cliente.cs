@@ -1,4 +1,4 @@
-﻿namespace QualityData.Api.Dto
+﻿namespace QualityData.Library.Dto
 {
     public class Cliente
     {

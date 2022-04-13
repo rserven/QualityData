@@ -1,7 +1,8 @@
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace QualityData.Api.Models
+namespace QualityData.Library.Models
 {
     public partial class ObtenerCliente
     {
@@ -23,14 +24,17 @@ namespace QualityData.Api.Models
 
         [Column(Order = 4)]
         [StringLength(500)]
+        [DisplayName("Tipo Ubicación")]
         public string Descripcion { get; set; }
 
         [Column(Order = 5)]
         [StringLength(500)]
+        [DisplayName("Dirección")]
         public string Direccion { get; set; }
 
         [Column(Order = 6)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DisplayName("Teléfono")]
         public int Telefono { get; set; }
     }
 }

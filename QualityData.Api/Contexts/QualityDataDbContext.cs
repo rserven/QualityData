@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using QualityData.Api.Models;
+using QualityData.Library.Models;
 
 namespace QualityData.Api.Contexts
 {
